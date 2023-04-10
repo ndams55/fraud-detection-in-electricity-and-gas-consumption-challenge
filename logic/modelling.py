@@ -35,7 +35,7 @@ class NeuralNet(nn.Module):
        self.params['n_epochs'] = n_epochs
        self.params['learning_rate'] = learning_rate
        #optimizer = torch.optim.SGD(self.parameters(), lr=learning_rate)
-       self.params['optimizer'] = optimizer
+       #self.params['optimizer'] = optimizer
        self.params['criterion'] = criterion
 
 
@@ -50,11 +50,11 @@ class NeuralNet(nn.Module):
         return out
     
     
-    def fit(self, params, x_data_loader):
+    def fit(self, x_data_loader):
         
-        n_epochs = params['n_epochs']
-        criterion = params['criterion']
-        learning_rate = params['learning_rate']
+        n_epochs = self.params['n_epochs']
+        criterion = self.params['criterion']
+        learning_rate = self.params['learning_rate']
         optimizer = torch.optim.SGD(self.parameters(), lr=learning_rate)
 
         losses = []
